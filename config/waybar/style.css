@@ -1,0 +1,361 @@
+/* =============================================================================
+*
+* Waybar configuration - Modern Style (Simplified)
+*
+* Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+*
+* =========================================================================== */
+
+@import 'themes/kanagawa.css';
+
+/* -----------------------------------------------------------------------------
+* Base styles
+* -------------------------------------------------------------------------- */
+
+* {
+	border: none;
+	border-radius: 0;
+	font-family: 'JetBrains Mono', 'Hack Nerd Font', 'UbuntuMono', monospace;
+	font-size: 14px;
+	font-weight: 600;
+	min-height: 0;
+	padding: 0;
+	margin: 0;
+}
+
+window#waybar {
+	background: rgba(0, 0, 0, 1);
+}
+
+/* -----------------------------------------------------------------------------
+* Tooltips
+* -------------------------------------------------------------------------- */
+
+tooltip {
+	background: @background-primary;
+	color: @text;
+	border: 1px solid @border-color;
+	border-radius: 0px;
+	padding: 8px 12px;
+}
+
+tooltip label {
+	color: @text;
+	font-size: 12px;
+}
+
+/* -----------------------------------------------------------------------------
+* Workspaces
+* -------------------------------------------------------------------------- */
+
+#workspaces {
+	padding: 4px;
+	margin: 6px 2px;
+}
+
+#workspaces button {
+	padding: 6px 10px;
+	margin: 0 2px;
+	color: rgba(255, 255, 255, 1);
+	background: rgba(0, 0, 0, 1);
+	font-weight: bold;
+}
+
+#workspaces button:hover {
+	background: rgba(255, 255, 255, 1);
+	color: black;
+}
+
+#workspaces button.active,
+#workspaces button.focused {
+	background: rgba(255, 255, 255, 1);
+	color: rgba(0, 0, 0, 1);
+	font-weight: bold;
+	opacity: 1;
+}
+
+#workspaces button.empty {
+	opacity: 1;
+	background: rgba(0, 0, 0, 1);
+	color: rgba(255, 255, 255, 1);
+}
+
+#workspaces button.empty:hover {
+	background: rgba(255, 255, 255, 1);
+	color: rgba(0, 0, 0, 1);
+	border: 0px;
+}
+
+#workspaces button.urgent {
+	background: @error;
+	color: @base;
+	border-color: @maroon;
+}
+
+/* -----------------------------------------------------------------------------
+* Window title
+* -------------------------------------------------------------------------- */
+
+#window {
+	background: @background-secondary;
+	color: @text;
+	padding: 8px 16px;
+	border-radius: 12px;
+	border: 1px solid @border-color;
+	font-weight: 500;
+}
+
+/* -----------------------------------------------------------------------------
+* Clock
+* -------------------------------------------------------------------------- */
+
+#clock {
+	background: @blue;
+	color: @base;
+	font-weight: bold;
+	margin: 6px 2px 6px 2px;
+	padding: 8px 12px;
+	border-radius: 12px;
+	font-size: 15px;
+}
+
+/* -----------------------------------------------------------------------------
+* System monitoring modules
+* -------------------------------------------------------------------------- */
+
+#memory {
+	background: @background-primary;
+	color: @green;
+	margin: 6px 0;
+	padding: 8px 12px;
+}
+
+#cpu {
+	background: @background-primary;
+	color: @blue;
+	margin: 6px 0px 6px 0;
+	padding: 8px 12px;
+}
+
+#temperature {
+	background: @background-primary;
+	color: @teal;
+	margin: 6px 2px 6px 0;
+	padding: 8px 12px;
+}
+
+#temperature.critical {
+	background: @error;
+	color: @base;
+	border-left: 4px solid @maroon;
+}
+
+/* -----------------------------------------------------------------------------
+* Battery
+* -------------------------------------------------------------------------- */
+
+#battery {
+	background: @background-primary;
+	color: @green;
+	margin: 6px 2px;
+	padding: 8px 12px;
+}
+
+#battery.charging {
+	color: @yellow;
+}
+
+#battery.warning {
+	background: @warning;
+	color: @base;
+	border-left: 4px solid @peach;
+}
+
+#battery.critical:not(.charging) {
+	background: @error;
+	color: @base;
+	border-left: 4px solid @maroon;
+}
+
+/* -----------------------------------------------------------------------------
+* Audio and Backlight
+* -------------------------------------------------------------------------- */
+
+#backlight {
+	background: @background-primary;
+	color: @yellow;
+	margin: 6px 0 6px 2px;
+	padding: 8px 12px;
+}
+
+#pulseaudio {
+	background: @background-primary;
+	color: @yellow;
+	margin: 6px 2px 6px 0;
+	padding: 8px 12px;
+}
+
+#pulseaudio.muted {
+	color: @subtext0;
+}
+
+/* -----------------------------------------------------------------------------
+* Network
+* -------------------------------------------------------------------------- */
+
+#network {
+	background: rgba(0, 0, 0, 1);
+	color: @green;
+	margin: 6px 2px;
+	padding: 8px 12px;
+}
+
+#network.disconnected {
+	color: @error;
+}
+
+#network.disabled {
+	color: @subtext0;
+}
+
+/* -----------------------------------------------------------------------------
+* Language
+* -------------------------------------------------------------------------- */
+
+#language {
+	background: @background-primary;
+	color: @mauve;
+	margin: 6px 0 6px 2px;
+	padding: 8px 12px;
+}
+
+#keyboard-state {
+	background: @background-primary;
+	color: @mauve;
+	margin: 6px 2px 6px 0;
+	padding: 8px 12px;
+}
+
+/* -----------------------------------------------------------------------------
+* Custom modules
+* -------------------------------------------------------------------------- */
+
+#custom-launcher {
+	background: @background-primary;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 6px 2px 6px 8px;
+	padding: 8px 14px 8px 10px;
+}
+
+#custom-weather {
+	background: @background-primary;
+	color: @blue;
+	margin: 6px 2px;
+	padding: 8px 12px;
+}
+
+#custom-updates {
+	background: @background-primary;
+	color: @yellow;
+	margin: 6px 2px;
+	padding: 8px 12px;
+}
+
+#custom-updates.has-updates {
+	background: @warning;
+	color: @base;
+	border-left: 4px solid @peach;
+}
+
+#custom-vpn {
+	background: @background-primary;
+	color: @teal;
+	margin: 6px 2px;
+	padding: 8px 12px;
+}
+
+#custom-vpn.connected {
+	color: @success;
+}
+
+#custom-notification {
+	background: @background-primary;
+	color: @lavender;
+	margin: 6px 2px;
+	padding: 8px 12px;
+}
+
+#custom-cava {
+	background: @background-primary;
+	color: @green;
+	margin: 6px 2px;
+	padding: 8px 12px;
+}
+
+/* -----------------------------------------------------------------------------
+* Tray
+* -------------------------------------------------------------------------- */
+
+#tray {
+	background: @background-primary;
+	padding: 6px 10px;
+	margin: 6px 8px 6px 2px;
+}
+
+#tray > .passive {
+	opacity: 0.7;
+}
+
+#tray > .needs-attention {
+	background-color: @error;
+	border-radius: 6px;
+	color: @base;
+}
+
+/* -----------------------------------------------------------------------------
+* Idle inhibitor
+* -------------------------------------------------------------------------- */
+
+#idle_inhibitor {
+	background: @background-primary;
+	color: @yellow;
+	margin: 6px 2px;
+	padding: 8px 12px;
+}
+
+#idle_inhibitor.activated {
+	background: @yellow;
+	color: @base;
+}
+
+#mode {
+	background: @warning;
+	color: @base;
+	font-weight: bold;
+	padding: 8px 16px;
+	margin: 6px 8px;
+}
+
+/* -----------------------------------------------------------------------------
+* Hover effects
+* -------------------------------------------------------------------------- */
+
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-launcher:hover,
+#custom-notification:hover,
+#custom-weather:hover,
+#custom-updates:hover,
+#custom-vpn:hover,
+#language:hover,
+#custom-cava:hover {
+	opacity: 0.8;
+}
